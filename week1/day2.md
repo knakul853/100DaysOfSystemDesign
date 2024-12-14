@@ -120,3 +120,8 @@ These are algorithms used by load balancers to determine how to distribute traff
 - **Strategies:** Round robin, least connections, etc. (choose based on needs)
 - **Use Cases:** Web apps, APIs, databases, streaming, gaming.
 - **Purpose:** Scalability, availability, and performance.
+
+## Resources: 
+- podcast llm :https://notebooklm.google.com/notebook/86b1d918-af08-4c32-8cf3-4835cdc86200/audio
+- youtube: https://youtu.be/bIBC_RQtS2E?si=qkUnue-jAqIEhXE1
+
