@@ -47,24 +47,50 @@ A system can leverage a combination of HA and FT strategies, with HA at the appl
 
 ## Q&A:
 
-"When would you choose HA over FT?"
+### 1. When would you choose HA over FT?
+   Choose High Availability (HA) when:
+   - Cost is a concern: HA is cheaper and simpler than FT.
+   - Some downtime is acceptable: A few seconds or minutes during failover.
+   - Scalability is important: HA is easier to scale with load balancers.
+   - Use Case Examples: E-commerce websites, streaming platforms.
 
-"Describe a scenario where FT would be essential."
+### 2. Describe a scenario where FT would be essential.
+   Fault Tolerance (FT) is essential in systems where zero downtime is critical:
+   - Example: Airplane control systems must continue operating seamlessly during failures to ensure safety.
+   - Other Examples: Medical devices, nuclear reactors, high-frequency trading platforms.
 
-"What are the key technical challenges in implementing an FT system?"
+### 3. What are the key technical challenges in implementing an FT system?
+   - Cost: Full redundancy is expensive.
+   - Complexity: Designing seamless failover and real-time replication.
+   - Latency: Synchronizing redundant components without delays.
+   - Failure Detection: Quickly identifying real failures vs. temporary issues.
+   - State Consistency: Keeping all components in sync.
+   - Testing: Simulating failures effectively.
 
-"How does your approach to HA or FT affect scalability?"
+### 4. How does your approach to HA or FT affect scalability?
+   HA:
+   - Easier to scale with horizontal scaling (e.g., adding servers behind load balancers).
+   - Focus on performance and availability.
+   FT:
+   - Harder to scale due to the cost and complexity of full redundancy.
+   - Requires synchronization of each added component.
 
-"How would you monitor a system for HA and FT?"
+### 5. How would you monitor a system for HA and FT?
+   For HA:
+   - Monitor uptime, failover time, and load balancer health using tools like Prometheus or Grafana.
+   - Set alerts for unavailability or high error rates.
+   For FT:
+   - Track redundancy health, replication lag, and simulate failures (e.g., Chaos Monkey).
+   - Use tools like Datadog or New Relic and set alerts for inconsistencies or backup failures.
 
 ## Summary Table:
 
-| Feature        | High Availability                        | Fault Tolerance                              |
-| -------------- | ---------------------------------------- | -------------------------------------------- |
-| **Goal**       | Minimize downtime                        | Eliminate downtime                           |
-| **Downtime**   | Possible, brief interruption             | None                                         |
-| **Complexity** | Lower                                    | Higher                                       |
-| **Cost**       | Lower                                    | Higher                                       |
+| Feature        | High Availability                        | Fault Tolerance                                                                         |
+| -------------- | ---------------------------------------- | --------------------------------------------------------------------------------------- |
+| **Goal**       | Minimize downtime                        | Eliminate downtime                                                                      |
+| **Downtime**   | Possible, brief interruption             | None                                                                                    |
+| **Complexity** | Lower                                    | Higher                                                                                  |
+| **Cost**       | Lower                                    | Higher                                                                                  |
 | **Ideal For**  | Most web apps, regular business services | Mission-critical, zero-downtime,Airplane control systems, nuclear reactors applications |
 
 ## Analogy:
