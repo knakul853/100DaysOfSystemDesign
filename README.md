@@ -106,3 +106,12 @@ This document outlines the topics covered in the 100 Days of System Design chall
 ## Week 16: Final Practice and Sharing
 - 81-90. Solve mock system design interviews.
 - 91-100. Share learnings and consolidate notes into reusable materials.
+
+
+## Resource
+- https://github.com/karanpratapsingh/system-design
+- https://www.enjoyalgorithms.com/blog/design-typeahead-system
+- https://www.nexsoftsys.com/articles/how-to-design-backend-system-of-an-online-hotel-booking-app-using-java.html
+- https://systemdesignprimer.com/dropbox-system-design/
+- https://www.enjoyalgorithms.com/blog/web-crawler
+- https://www.educative.io/courses/grokking-the-system-design-interview/system-design-tinyurl
