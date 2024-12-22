@@ -21,6 +21,22 @@ A Content Delivery Network (CDN) is a globally distributed network of servers th
 5.  **Content Delivery and Caching:** The edge server delivers the content to the user _and_ stores a copy of the content for future requests.
 6.  **Future Requests:** Subsequent requests from users near that edge server will get the content from the cache – much faster.
 
+```mermaid
+sequenceDiagram
+    participant User
+    participant CDN_Edge_Server
+    participant Origin_Server
+    User->>CDN_Edge_Server: Request
+    alt Cache Hit
+        CDN_Edge_Server-->>User: Cached Content
+    else Cache Miss
+        CDN_Edge_Server->>Origin_Server: Request Content
+        Origin_Server-->>CDN_Edge_Server: Content
+        CDN_Edge_Server-->>User: Content
+        CDN_Edge_Server->>CDN_Edge_Server: Cache Content
+    end
+```
+
 **Real-World Scenarios:**
 
 - **E-commerce Website:** A global online store uses a CDN to serve product images, style sheets, and JavaScript files quickly to customers worldwide, reducing page load times and improving the user experience.

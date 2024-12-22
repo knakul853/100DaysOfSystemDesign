@@ -9,6 +9,14 @@
 
 #### **Key Characteristics**
 
+```mermaid
+graph TD
+    A[SQL Databases] -->|Schema-based| B[Fixed Schema]
+    A -->|ACID Compliance| C[Strong Consistency]
+    A -->|Vertical Scalability| D[Scale Up]
+    A -->|Joins and Relationships| E[Complex Queries]
+```
+
 - **Schema-based:** Data is stored in tables with fixed columns and rows.
 - **ACID Compliance:** Ensures strong consistency, atomicity, consistency, isolation, and durability.
 - **Vertical Scalability:** Can handle increased load by scaling up (e.g., upgrading hardware).
@@ -60,6 +68,14 @@
 
 #### **Types of NoSQL Databases**
 
+```mermaid
+graph TD
+    A[NoSQL Databases] -->|Key-Value Stores| B[Redis, DynamoDB]
+    A -->|Document Stores| C[MongoDB, CouchDB]
+    A -->|Column-Family Stores| D[Apache Cassandra, HBase]
+    A -->|Graph Databases| E[Neo4j, Amazon Neptune]
+```
+
 1. **Key-Value Stores:**
 
    - Example: Redis, DynamoDB
@@ -108,6 +124,17 @@
 ---
 
 ### **Comparison Table**
+
+```mermaid
+graph TD
+    A[SQL vs. NoSQL] -->|Data Model| B[Relational vs. Non-Relational]
+    A -->|Schema| C[Fixed vs. Dynamic]
+    A -->|Scalability| D[Vertical vs. Horizontal]
+    A -->|Consistency| E[ACID vs. BASE]
+    A -->|Joins| F[Supports vs. No Joins]
+    A -->|Performance| G[Complex Queries vs. High Throughput]
+    A -->|Use Cases| H[Traditional vs. Modern Apps]
+```
 
 | Feature         | SQL Databases                                       | NoSQL Databases                                            |
 | --------------- | --------------------------------------------------- | ---------------------------------------------------------- |

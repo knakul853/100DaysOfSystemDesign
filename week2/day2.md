@@ -29,6 +29,28 @@
 10. **Connection Established:**
     - Your computer uses the IP address to connect directly to the web server hosting `www.example.com`, and you can see the website.
 
+```mermaid
+sequenceDiagram
+    participant User
+    participant Local_Cache
+    participant Recursive_Resolver
+    participant Root_Nameserver
+    participant TLD_Nameserver
+    participant Authoritative_Nameserver
+    User->>Local_Cache: www.example.com
+    Local_Cache-->>User: IP (if cached)
+    Local_Cache->>Recursive_Resolver: www.example.com (if not cached)
+    Recursive_Resolver->>Root_Nameserver: www.example.com
+    Root_Nameserver-->>Recursive_Resolver: .com TLD
+    Recursive_Resolver->>TLD_Nameserver: www.example.com
+    TLD_Nameserver-->>Recursive_Resolver: example.com Authoritative NS
+    Recursive_Resolver->>Authoritative_Nameserver: www.example.com
+    Authoritative_Nameserver-->>Recursive_Resolver: IP Address
+    Recursive_Resolver-->>Local_Cache: IP Address
+    Local_Cache-->>User: IP Address
+    User->>Server: Connect to IP
+```
+
 **Key Components:**
 
 - **Domain Name:** The human-readable address (e.g., `www.example.com`).
@@ -39,6 +61,13 @@
 - **Authoritative Nameserver:** Holds the definitive IP addresses for a domain.
 - **DNS Cache:** Temporary storage of DNS records to speed up future lookups (exists at multiple levels: browser, OS, resolver).
 - **Time To Live (TTL):** The duration for which a DNS record is cached.
+
+```mermaid
+graph LR
+    A[Root Nameserver] --> B(TLD Nameserver);
+    B --> C(Authoritative Nameserver);
+    C --> D(IP Address);
+```
 
 **Interview Talking Points:**
 

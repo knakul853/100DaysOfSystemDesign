@@ -8,6 +8,14 @@ Stateless: Each request is treated independently; the server doesn't retain info
 
 Request-Response: Client sends a request to the server; the server processes it and sends back a response.
 
+```mermaid
+sequenceDiagram
+    participant Client
+    participant Server
+    Client->>Server: Request
+    Server-->>Client: Response
+```
+
 HTTPS (Hypertext Transfer Protocol Secure): HTTP with security. It uses TLS/SSL to encrypt the communication between the client and server, ensuring:
 
 - Confidentiality: Data is encrypted, preventing eavesdropping.
@@ -41,6 +49,17 @@ These define the action to be performed on a resource.
 - OPTIONS: Gets the communication options for the target resource.
   - Used to check which HTTP methods are supported.
   - Important for CORS (Cross-Origin Resource Sharing).
+
+```mermaid
+graph LR
+    A[Client] -->|GET| B(Server);
+    A -->|POST| B;
+    A -->|PUT| B;
+    A -->|PATCH| B;
+    A -->|DELETE| B;
+    A -->|HEAD| B;
+    A -->|OPTIONS| B;
+```
 
 **Q:** Understand the difference between PUT and PATCH, and when to use which.
 

@@ -9,6 +9,15 @@ Availability (A): Every request receives a response (without guarantee that it c
 Partition Tolerance (P): The system continues to operate despite network partitions (message loss or temporary connection issues).
 
 It's a trade-off, you must choose which two properties your system will focus on.
+```mermaid
+  graph LR
+      A[Consistency] -- CA --> B[Availability]
+      A -- CP --> C[Partition Tolerance]
+      B -- AP --> C
+      style A fill:#f9f,stroke:#333,stroke-width:2px
+      style B fill:#ccf,stroke:#333,stroke-width:2px
+      style C fill:#afa,stroke:#333,stroke-width:2px
+```
 
 CAP Trade-offs Explained
 

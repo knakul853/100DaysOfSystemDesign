@@ -5,6 +5,17 @@ High Availability (HA): Aims to minimize downtime. The system might experience a
 Fault Tolerance (FT): Aims to eliminate downtime. The system continues to operate seamlessly even when a component fails.
 
 ## Key Points to Understand:
+```mermaid
+graph LR
+    A[System] --> B{Failure?};
+    B -- Yes --> C[High Availability];
+    B -- No --> D[No Failure];
+    C --> E[Short Downtime];
+     B -- Yes --> F[Fault Tolerance];
+    F --> G[No Downtime];
+    style C fill:#f9f,stroke:#333,stroke-width:2px
+     style F fill:#ccf,stroke:#333,stroke-width:2px
+```
 
 | Feature        | High Availability (HA)                                   | Fault Tolerance (FT)                                                                                              |
 | -------------- | -------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |

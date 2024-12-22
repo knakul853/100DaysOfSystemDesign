@@ -15,18 +15,39 @@
 
 - **Write-Through Caching:**
   - **How It Works:** Every write operation goes through the cache and also updates the backend data store.
+```mermaid
+graph LR
+    A[Write Request] --> B(Cache);
+    B --> C(Data Store);
+    C --> D[Response];
+    style B fill:#f9f,stroke:#333,stroke-width:2px
+```
   - **Pros:** Data consistency, high data reliability.
   - **Cons:** Higher latency for write operations (as two writes happen, to cache and to db)
   - **Use Cases:** Suitable for systems where data consistency is paramount.
   - **Analogy:** Think of a double-entry bookkeeping system.
 - **Write-Back Caching (Write-Behind):**
   - **How It Works:** Writes only go to the cache. The cache updates the data store asynchronously later (based on a time limit, etc.).
+```mermaid
+graph LR
+    A[Write Request] --> B(Cache);
+    B --> C[Data Store]
+    style B fill:#ccf,stroke:#333,stroke-width:2px
+```
   - **Pros:** Fast write operations (low latency), improved write throughput.
   - **Cons:** Data loss risk if the cache fails before updating the backend. Data is stale for a brief period, which may not be acceptable in all systems.
   - **Use Cases:** Suitable for systems where performance is the highest priority.
   - **Analogy:** Think of writing a letter in a notepad (cache) and then transcribing it later into a final paper (DB).
 - **Write-Around Caching (Invalidation):**
   - **How It Works:** Writes go directly to the backend. When data is read, it's placed in the cache.
+```mermaid
+graph LR
+    A[Write Request] --> B(Data Store);
+    B --> C[Response];
+    D[Read Request] --> B;
+    B --> E(Cache);
+    style E fill:#afa,stroke:#333,stroke-width:2px
+```
   - **Pros:** Avoids dirty cache issues, reduces cache churn (avoiding replacing cached items by often modified ones)
   - **Cons:** Cache misses occur on writes.
   - **Use Cases:** Suitable for applications with heavy write-only loads.

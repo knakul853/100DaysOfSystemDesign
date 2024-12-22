@@ -31,8 +31,17 @@
 | ------------------ | ---------------------------------------- | ------------------------------------------- |
 | **Purpose**        | Controls request volume to prevent abuse | Prevents resource exhaustion                |
 | **Scope**          | Applies to users, APIs, or applications  | Applies to system resources or services     |
-| **Implementation** | Enforces limits on request frequency     | Limits resource usage (e.g., CPU, memory)   |
-| **Example**        | Limiting API requests to 100 per minute  | Limiting the number of database connections |
+| **Implementation** | Enforces limits on request frequency     | Limits resource usage (e.g., CPU, memory)   || **Example**        | Limiting API requests to 100 per minute  | Limiting the number of database connections |
+
+```mermaid
+graph TD
+    A[Rate Limiting] -->|Request Quotas| B[Client]
+    B -->|Request| C[Server]
+    C -->|Response| B
+    D[Throttling] -->|Resource Usage| E[Client]
+    E -->|Request| F[Server]
+    F -->|Response| E
+```
 
 ---
 

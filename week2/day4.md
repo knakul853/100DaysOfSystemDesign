@@ -89,8 +89,20 @@ sequenceDiagram
 | **Connection**   | Stateless; One request per connection | Stateful; Single persistent connection    | Single persistent connection (HTTP/2)    |
 | **Data Format**  | JSON/XML                              | Various (text, JSON, binary)              | Protocol Buffers (Protobuf)              |
 | **Protocol**     | HTTP/1.1                              | WebSocket (based on TCP)                  | HTTP/2                                   |
-| **Use Cases**    | Standard APIs, browsing               | Real-time apps, chat, games, live updates | High-performance APIs, microservices, ML |
-| **Performance**  | Moderate                              | Good for real-time                        | Very high                                |
+| **Use Cases**    | Standard APIs, browsing               | Real-time apps, chat, games, live updates | High-performance APIs, microservices, ML || **Performance**  | Moderate                              | Good for real-time                        | Very high                                |
+
+```mermaid
+graph TD
+    A[REST] -->|Request-Response| B[Client]
+    B -->|Request| C[Server]
+    C -->|Response| B
+    D[WebSockets] -->|Persistent Connection| E[Client]
+    E -->|Send Data| F[Server]
+    F -->|Send Data| E
+    G[gRPC] -->|RPC Call| H[Client]
+    H -->|Call| I[Server]
+    I -->|Response| H
+```
 
 ---
 

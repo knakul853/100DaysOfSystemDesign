@@ -41,6 +41,17 @@ These are algorithms used by load balancers to determine how to distribute traff
 ### Round Robin:
 
 **How it Works:** Distributes requests sequentially to each server in turn.
+```mermaid
+graph LR
+    A[Client Request] --> B(Load Balancer);
+    B --> C[Server 1];
+    B --> D[Server 2];
+    B --> E[Server 3];
+    C --> F[Response];
+    D --> F;
+    E --> F;
+    style B fill:#f9f,stroke:#333,stroke-width:2px
+```
 
 **Pros:** Simple, easy to implement.
 
@@ -49,6 +60,17 @@ These are algorithms used by load balancers to determine how to distribute traff
 ### Least Connections:
 
 **How it Works:** Directs traffic to the server with the fewest active connections.
+```mermaid
+graph LR
+    A[Client Request] --> B(Load Balancer);
+    B --> C[Server 1]
+    B --> D[Server 2]
+    B --> E[Server 3]
+    C -- 2 connections --> F[Response]
+    D -- 1 connection --> F
+    E -- 3 connections --> F
+    style B fill:#ccf,stroke:#333,stroke-width:2px
+```
 
 **Pros:** Balances load based on connection count, more efficient distribution.
 

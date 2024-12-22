@@ -2,6 +2,19 @@
 
 Scalability is about how well a system can handle increased traffic or workload. The goal is to maintain performance and availability even as demand grows.
 
+```mermaid
+graph LR
+    A[Start] --> B{More Traffic?};
+    B -- Yes --> C[Vertical Scaling];
+    B -- No --> D[No Scaling];
+    C --> E[Increase Resources on Single Machine];
+     B -- Yes --> F[Horizontal Scaling];
+    F --> G[Add More Machines];
+    
+    style C fill:#f9f,stroke:#333,stroke-width:2px
+     style F fill:#ccf,stroke:#333,stroke-width:2px
+```
+
 ## 1. Vertical Scaling (Scaling Up)
 
 **What it is:** Increasing the resources of a single machine. This means adding more:
