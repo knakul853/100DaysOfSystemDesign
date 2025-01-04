@@ -30,7 +30,7 @@ A scalable file storage system typically consists of the following components:
 
 ---
 
-## **Mermaid Diagram: Scalable File Storage System**
+## **Scalable File Storage System**
 
 ```mermaid
 graph TD
@@ -149,7 +149,7 @@ graph TD
 
 ---
 
-## **Interview Questions**
+## **FAQ**
 
 1. **How would you handle large file uploads?**
 
