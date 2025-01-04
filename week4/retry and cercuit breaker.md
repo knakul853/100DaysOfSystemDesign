@@ -168,8 +168,6 @@ Retry mechanisms and circuit breakers are often used together to build resilient
 
 ---
 
-### **7. Example: Mermaid Diagram for Retry and Circuit Breaker**
-
 ```mermaid
 graph TD
     A[Client] -->|Request| B[Service]
